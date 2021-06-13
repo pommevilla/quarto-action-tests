@@ -4,6 +4,8 @@ on: push
 jobs:
   download:
     runs-on: ubuntu-latest
+    env:
+      RENV_PATHS_ROOT: ~/.local/share/renv
     steps:
     - uses: actions/checkout@v2
     - name: "Install quarto bin"
