@@ -30,7 +30,6 @@ jobs:
     - name: "Quarto capabilities"
       run: |
         quarto capabilities
-<<<<<<< Updated upstream
         #    - name: "Install R Packages"
         #      run: |
         #        R -e 'install.packages("renv")'
@@ -48,10 +47,6 @@ jobs:
       run: |
         if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
         renv::restore()
-
-=======
->>>>>>> Stashed changes
-
     - name: "Quarto: Render sample Rmarkdown"
       run: |
         quarto render r_example.Rmd
