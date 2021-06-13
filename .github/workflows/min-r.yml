@@ -16,10 +16,25 @@ jobs:
     - name: "Quarto capabilities"
       run: |
         quarto capabilities
-    - name: "Install R Packages"
+        #    - name: "Install R Packages"
+        #      run: |
+        #        R -e 'install.packages("renv")'
+        #        R -e 'renv::restore()'
+    - name: Cache packages
+      uses: actions/cache@v1
+      with:
+        path: ${{ env.RENV_PATHS_ROOT }}
+        key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-renv-
+
+    - name: Restore packages
+      shell: Rscript {0}
       run: |
-        R -e 'install.packages("renv")'
-        R -e 'renv::restore()'
+        if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+        renv::restore()
+
+
     - name: "Quarto: Render sample Rmarkdown"
       run: |
         quarto render r_example.Rmd
