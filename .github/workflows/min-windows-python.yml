@@ -41,4 +41,4 @@ jobs:
         #        echo "which jupyter: $(which jupyter)"
         #    - name: "Quarto: Render sample Python"
         #      run: |
-        quarto render python_example.qmd
+        quarto render --execute-debug python_example.qmd
