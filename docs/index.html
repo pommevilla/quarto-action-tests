@@ -118,6 +118,7 @@
 <li><a href="#quarto-action-testing" class="nav-link active" data-scroll-target="#quarto-action-testing">Quarto Action Testing</a>
 <ul class="collapse">
 <li><a href="#steps" class="nav-link" data-scroll-target="#steps">Steps</a></li>
+<li><a href="#example-pages" class="nav-link" data-scroll-target="#example-pages">Example pages</a></li>
 </ul></li>
 </ul>
 </nav></div>
@@ -128,12 +129,14 @@
 <h1>Quarto Action Testing</h1>
 <p>Testing for creating a Github action that renders a project via <code>quarto</code>. The action file is <a href=".github/workflows/quarto-render.yml">quarto-render</a>. Some requirements:</p>
 <ul>
-<li>A file named <code>requirements.txt</code>. You can generate this via <code>pip freeze &gt; requirements.txt</code>.</li>
-<li>An <code>Renv</code> lockfile. See <a href="https://rstudio.github.io/renv/articles/renv.html#workflow-1">here</a> for more information on using <code>Renv</code> and creating lockfiles/snapshots.</li>
+<li><p>A file named <code>requirements.txt</code>. You can generate this via <code>pip freeze &gt; requirements.txt</code>.</p></li>
+<li><p>An <code>Renv</code> lockfile. See <a href="https://rstudio.github.io/renv/articles/renv.html#workflow-1">here</a> for more information on using <code>Renv</code> and creating lockfiles/snapshots.</p></li>
+<li><p>Change the Github Page source to <code>docs</code> and add the following <code>type</code> and <code>output-dir</code> arguments in <code>_quarto.yml</code>:</p>
+<p>project: type: site … output-dir: docs …</p></li>
 </ul>
 <section id="steps" class="level2">
 <h2 class="anchored" data-anchor-id="steps">Steps</h2>
-<p>The action will render the documents in the directory by taking these steps:</p>
+<p>The action will render Quarto documents contained in the directory by taking these steps:</p>
 <ol type="1">
 <li>Downloading and installing the latest Quarto CLI release from <a href="https://github.com/quarto-dev/quarto-cli">quarto-dev/quarto-cli</a></li>
 <li>Set up Python via <a href="https://github.com/actions/setup-python">actions/setup-python</a></li>
@@ -141,8 +144,12 @@
 <li>Set up R via <a href="https://github.com/r-lib/actions/tree/master/setup-r">r-lib/actions/setup-r</a></li>
 <li>Restore the R environment from the <code>renv</code> lockfile</li>
 <li>Calls <code>quarto render</code> at the root of the github repository.</li>
-<li>Pushes and commits any changes detected.</li>
+<li>Pushes and commits any changes to the <code>docs</code> folder.</li>
 </ol>
+</section>
+<section id="example-pages" class="level2">
+<h2 class="anchored" data-anchor-id="example-pages">Example pages</h2>
+<p><a href="./python_example.html">python_example.qmd</a> <a href="./r_example.html">r_example.rmd</a></p>
 <!-- -->
 </section>
 </section>

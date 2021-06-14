@@ -3,7 +3,13 @@
     "href": "index.html#steps",
     "title": "Testing automated quarto rendering",
     "section": "Steps",
-    "text": "The action will render the documents in the directory by taking these steps:\n\nDownloading and installing the latest Quarto CLI release from quarto-dev/quarto-cli\nSet up Python via actions/setup-python\nInstall all Python requirements from requirements.txt (parsing for platform specific packages)\nSet up R via r-lib/actions/setup-r\nRestore the R environment from the renv lockfile\nCalls quarto render at the root of the github repository.\nPushes and commits any changes detected."
+    "text": "The action will render Quarto documents contained in the directory by taking these steps:\n\nDownloading and installing the latest Quarto CLI release from quarto-dev/quarto-cli\nSet up Python via actions/setup-python\nInstall all Python requirements from requirements.txt (parsing for platform specific packages)\nSet up R via r-lib/actions/setup-r\nRestore the R environment from the renv lockfile\nCalls quarto render at the root of the github repository.\nPushes and commits any changes to the docs folder."
+  },
+  {
+    "href": "index.html#example-pages",
+    "title": "Testing automated quarto rendering",
+    "section": "Example pages",
+    "text": "python_example.qmd r_example.rmd"
   },
   {
     "href": "python_example.html#polar-axis",
