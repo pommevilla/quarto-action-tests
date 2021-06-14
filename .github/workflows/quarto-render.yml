@@ -1,4 +1,4 @@
-name: Install Quarto, R, Python, and packages
+name: Render quarto files
 on: push
 
 jobs:
@@ -20,7 +20,8 @@ jobs:
     - uses: actions/setup-python@v2
     - name: "Install Python deps"
       run: | 
-        pip install -r requirements/common.txt
+        grep -iv "*win*" requirements.txt > TEMP_requirements.txt
+        pip install -r TEMP_requirements.txt
     - name: "Check Python installation"
       run: |
         echo "which python: $(which python)"
