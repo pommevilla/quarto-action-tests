@@ -1,6 +1,6 @@
 ---
-title: "Matplotlib Demo"
-author: "Norah Smith"
+title: "R Example"
+author: "Marie Curious"
 date: "May 22nd, 2021"
 format: 
   html:

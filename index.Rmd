@@ -6,11 +6,13 @@ Testing for creating a Github action that renders a project via `quarto`. The ac
 * An `Renv` lockfile. See [here](https://rstudio.github.io/renv/articles/renv.html#workflow-1) for more information on using `Renv` and creating lockfiles/snapshots.
 * Change the Github Page source to `docs` and add the following `type` and `output-dir` arguments in `_quarto.yml`:
 
-    project:
-	  type: site
-	  ...
-	  output-dir: docs
-	  ...
+```
+project:
+  type: site
+  ...
+  output-dir: docs
+	
+```
 
 
 ## Steps
@@ -24,10 +26,12 @@ The action will render Quarto documents contained in the directory by taking the
 5. Restore the R environment from the `renv` lockfile
 6. Calls `quarto render` at the root of the github repository.
 7. Pushes and commits any changes to the `docs` folder.
+8. *NOTE*: You will likely need to `git pull` this repo after running the `quarto-render` workflow as there are likely to be changes made afterwards.
+
 
 ## Example pages
 
-[python_example.qmd](python_example.qmd)
-[r_example.rmd](r_example.Rmd)
+* [python_example.qmd](python_example.qmd)
+* [r_example.rmd](r_example.Rmd)
 
 
