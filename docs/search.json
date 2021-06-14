@@ -3,23 +3,35 @@
     "href": "index.html#steps",
     "title": "Testing automated quarto rendering",
     "section": "Steps",
-    "text": "The action will render Quarto documents contained in the directory by taking these steps:\n\nDownloading and installing the latest Quarto CLI release from quarto-dev/quarto-cli\nSet up Python via actions/setup-python\nInstall all Python requirements from requirements.txt (parsing for platform specific packages)\nSet up R via r-lib/actions/setup-r\nRestore the R environment from the renv lockfile\nCalls quarto render at the root of the github repository.\nPushes and commits any changes to the docs folder."
+    "text": "The action will render Quarto documents contained in the directory by taking these steps:\n\nDownloading and installing the latest Quarto CLI release from quarto-dev/quarto-cli\nSet up Python via actions/setup-python\nInstall all Python requirements from requirements.txt (parsing for platform specific packages)\nSet up R via r-lib/actions/setup-r\nRestore the R environment from the renv lockfile\nCalls quarto render at the root of the github repository.\nPushes and commits any changes to the docs folder.\nNOTE: You will likely need to git pull this repo after running the quarto-render workflow as there are likely to be changes made afterwards."
   },
   {
     "href": "index.html#example-pages",
     "title": "Testing automated quarto rendering",
     "section": "Example pages",
-    "text": "python_example.qmd r_example.rmd"
+    "text": "python_example.qmd\nr_example.rmd"
+  },
+  {
+    "href": "python_r_example.html#python-example",
+    "title": "Python and R Demo",
+    "section": "Python example",
+    "text": "For a demonstration of a line plot on a polar axis, see fig. 1.\n\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(subplot_kw={'projection': 'polar'});\nax.plot(theta, r);\nax.set_rticks([0.5, 1, 1.5, 2]);\nax.grid(True);\nplt.show()\n\n\n\n\nFigure 1: A line plot on a polar axis"
+  },
+  {
+    "href": "python_r_example.html#r-example",
+    "title": "Python and R Demo",
+    "section": "R example",
+    "text": "library(ggplot2)\nggplot(airquality, aes(Temp, Ozone)) +\n        geom_point() +\n        geom_smooth(method = \"loess\", se = FALSE)"
   },
   {
     "href": "python_example.html#polar-axis",
-    "title": "Matplotlib Demo",
+    "title": "Python demo",
     "section": "Polar Axis",
     "text": "For a demonstration of a line plot on a polar axis, see fig. 1.\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(subplot_kw={'projection': 'polar'})\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\nFigure 1: A line plot on a polar axis"
   },
   {
     "href": "r_example.html#r-example",
-    "title": "Matplotlib Demo",
+    "title": "R Example",
     "section": "R example",
     "text": "Testing man.\n\n\nCode\nlibrary(ggplot2)\nggplot(airquality, aes(Temp, Ozone)) +\n        geom_point() +\n        geom_smooth(method = \"loess\", se = FALSE)"
   }

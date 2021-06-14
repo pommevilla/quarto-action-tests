@@ -4,7 +4,7 @@
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta name="author" content="Marie Curious">
-  <title>Testing automated quarto rendering – R Example</title>
+  <title>Testing automated quarto rendering – Python and R Demo</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -97,6 +97,85 @@
   <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
   <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
   <style type="text/css">
+    .quarto-layout-panel > figure {
+      width: 100%;
+    }
+    .quarto-layout-panel > figure > figcaption,
+    .quarto-layout-panel > .panel-caption {
+      margin-top: 10pt;
+    }
+    .quarto-layout-row {
+      display: flex;
+      align-items: flex-start;
+    }
+    .quarto-layout-valign-top {
+      align-items: flex-start;
+    }
+    .quarto-layout-valign-bottom {
+      align-items: flex-end;
+    }
+    .quarto-layout-valign-center {
+      align-items: center;
+    }
+    .quarto-layout-cell {
+      position: relative;
+      margin-right: 20px;
+    }
+    .quarto-layout-cell:last-child {
+      margin-right: 0;
+    }
+    .quarto-layout-cell figure,
+    .quarto-layout-cell > p {
+      margin: 0.2em;
+    }
+    .quarto-layout-cell img {
+      max-width: 100%;
+    }
+    .quarto-layout-cell .html-widget {
+      width: 100% !important;
+    }
+    .quarto-layout-cell div figure p {
+      margin: 0;
+    }
+    .quarto-layout-cell figure {
+      display: inline-block;
+      margin-inline-start: 0;
+      margin-inline-end: 0;
+    }
+    .quarto-layout-cell table {
+       display: inline-table;
+    }
+    .quarto-layout-cell-subref figcaption {
+      text-align: center;
+      font-style: italic;
+    }
+    .quarto-figure {
+      position: relative;
+    }
+    .quarto-figure > figure {
+      width: 100%;
+    }
+    .quarto-figure-left > figure > p {
+     text-align: left;
+    }
+    .quarto-figure-center > figure > p {
+      text-align: center;
+    }
+    .quarto-figure-right > figure > p {
+      text-align: right;
+    }
+    figure > p:empty {
+      display: none;
+    }
+    figure > p:first-child {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    figure > figcaption {
+      margin-top: 0.5em;
+    }
+  </style>
+  <style type="text/css">
     details {
       margin-bottom: 1em;
     } 
@@ -129,7 +208,7 @@
 <header id="quarto-header" class="headroom fixed-top">
 <nav class="quarto-secondary-nav py-2 d-lg-none d-md-block " data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <div class="container-fluid d-flex justify-content-between">
-    <h1 class="quarto-secondary-nav-title mb-0 fs-3 d-inline">R Example</h1>
+    <h1 class="quarto-secondary-nav-title mb-0 fs-3 d-inline">Python and R Demo</h1>
     <button type="button" class="quarto-btn-toggle btn d-lg-none py-0 px-1 d-inline-block border-0 ">
       <i class="bi bi-chevron-right"></i>
     </button>
@@ -167,7 +246,7 @@
   <a href="./index.html" class="">Quarto Action Testing</a>
 </li>
       <li class="sidebar-item">
-  <a href="./r_example.html" class="active">R Example</a>
+  <a href="./r_example.html" class="">R Example</a>
 </li>
       <li class="sidebar-item">
   <a href="./python_example.html" class="">Python demo</a>
@@ -179,30 +258,51 @@
   <div id="quarto-toc-sidebar" class="col col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-toc order-last"><nav id="TOC" role="doc-toc">
 <h2 id="toc-title">On this page</h2>
 <ul>
-<li><a href="#r-example" class="nav-link active" data-scroll-target="#r-example">R example</a></li>
+<li><a href="#python-example" class="nav-link active" data-scroll-target="#python-example">Python example</a></li>
+<li><a href="#r-example" class="nav-link" data-scroll-target="#r-example">R example</a></li>
 </ul>
 </nav></div>
   <div class="col mx-auto col-sm-12 col-md-9 col-lg-7 px-lg-4">
 <main>
 <header id="title-block-header">
-<h1 class="title d-none d-lg-block display-7">R Example</h1>
+<h1 class="title d-none d-lg-block display-7">Python and R Demo</h1>
 <p class="author">Marie Curious</p>
-<p class="date">May 22nd, 2021</p>
+<p class="date">6/11/2021</p>
 </header>
 
+<section id="python-example" class="level2">
+<h2 class="anchored" data-anchor-id="python-example">Python example</h2>
+<p>For a demonstration of a line plot on a polar axis, see <a href="#fig-polar">fig.&nbsp;1</a>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python cell-code"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(subplot_kw<span class="op">=</span>{<span class="st">'projection'</span>: <span class="st">'polar'</span>})<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>ax.plot(theta, r)<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>)<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-polar" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="python_r_example_files/figure-html/fig-polar-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 1: A line plot on a polar axis</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 <section id="r-example" class="level2">
 <h2 class="anchored" data-anchor-id="r-example">R example</h2>
-<p>Testing man.</p>
 <div class="cell">
-<p></p><details>
-<summary>Code</summary><p></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(airquality, <span class="fu">aes</span>(Temp, Ozone)) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="r_example_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<p><img src="python_r_example_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <!-- -->
