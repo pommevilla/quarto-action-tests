@@ -1,4 +1,4 @@
-name: Test Rendering Quarto Docs in R
+name: Testing a minimal quarto Docs in R
 on: push
 
 jobs:
@@ -10,7 +10,11 @@ jobs:
     - uses: actions/checkout@v2
     - name: "Install quarto bin"
       run: |
-        curl -OL https://github.com/quarto-dev/quarto-cli/releases/download/v0.1.255/quarto-0.1-amd64.deb
+        curl -s https://api.github.com/repos/quarto-dev/quarto-cli/releases/latest | 
+        grep "browser_download_url.*deb" | 
+        cut -d '"' -f 4 |
+        wget -i -
+
         sudo dpkg -i quarto-0.1-amd64.deb
     - name: "Cache packages"
       uses: actions/cache@v1
