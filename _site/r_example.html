@@ -4,7 +4,7 @@
   <meta name="generator" content="pandoc">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta name="author" content="Norah Smith">
-  <title>Matplotlib Demo</title>
+  <title>Testing automated quarto rendering – Matplotlib Demo</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -80,16 +80,22 @@
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
-  <script src="r_example_files/libs/quarto-html/quarto.js"></script>
-  <script src="r_example_files/libs/quarto-html/popper.min.js"></script>
-  <script src="r_example_files/libs/quarto-html/tippy.umd.min.js"></script>
-  <script src="r_example_files/libs/quarto-html/clipboard.min.js"></script>
-  <script src="r_example_files/libs/quarto-html/anchor.min.js"></script>
-  <script src="r_example_files/libs/quarto-html/quarto-html.js"></script>
-  <link href="r_example_files/libs/quarto-html/tippy.css" rel="stylesheet">
-  <script src="r_example_files/libs/bootstrap/bootstrap.min.js"></script>
-  <link href="r_example_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-  <link href="r_example_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="site_libs/quarto-nav/headroom.min.js"></script>
+  <meta name="quarto:offset" content=".">
+  <script src="site_libs/quarto-search/autocomplete.min.js"></script>
+  <script src="site_libs/quarto-search/fuse.min.js"></script>
+  <script src="site_libs/quarto-search/quarto-search.js"></script>
+  <script src="site_libs/quarto-html/quarto.js"></script>
+  <script src="site_libs/quarto-html/popper.min.js"></script>
+  <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="site_libs/quarto-html/clipboard.min.js"></script>
+  <script src="site_libs/quarto-html/anchor.min.js"></script>
+  <script src="site_libs/quarto-html/quarto-html.js"></script>
+  <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <script src="site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
   <style type="text/css">
     details {
       margin-bottom: 1em;
@@ -116,20 +122,77 @@
       display: none;
     }
   </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div id="quarto-content" class="container-fluid page-layout-article">
-<div class="row">
-<div class="col mx-auto col-sm-12 col-md-9 col-lg-7">
+<div id="quarto-search-results"></div>
+<header id="quarto-header" class="headroom fixed-top">
+<nav class="quarto-secondary-nav py-2 d-lg-none d-md-block " data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <div class="container-fluid d-flex justify-content-between">
+    <h1 class="quarto-secondary-nav-title mb-0 fs-3 d-inline">Matplotlib Demo</h1>
+    <button type="button" class="quarto-btn-toggle btn d-lg-none py-0 px-1 d-inline-block border-0 ">
+      <i class="bi bi-chevron-right"></i>
+    </button>
+  </div>
+</nav>
+</header>
+ <!-- /navbar/sidebar -->
+<div class="container-fluid quarto-container d-flex flex-column page-layout-article">
+<div class="row flex-fill" id="quarto-content">
+  <div id="quarto-sidebar" class="col col-12 col-lg-3 d-lg-flex px-0 pt-0 sidebar collapse sidebar-navigation">
+    <nav class="me-lg-auto py-2 docked  overflow-scroll">
+  <div class="px-3 pt-lg-2 mt-1 text-left">
+    <div class="sidebar-title mt-1 mb-0 py-0">
+      <a href="./">
+      Testing automated quarto rendering
+      </a>
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/pommevilla/quarto-action-tests" title="" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+  </div>
+    <div class="d-flex px-3 mt-2 flex-shrink-0 align-items-center">
+      <div class="sidebar-search">
+      <form class="d-flex mb-0">
+  <input id="quarto-search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+      </div>
+        <div class="sidebar-tools-collapse">
+    <a href="https://github.com/pommevilla/quarto-action-tests" title="" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+  <div class="sidebar-menu-container"> 
+  <ul class="list-unstyled mt-3 px-3">
+      <li class="sidebar-item">
+  <a href="./index.html" class="">Quarto Action Testing</a>
+</li>
+      <li class="sidebar-item">
+  <a href="./r_example.html" class="active">Matplotlib Demo</a>
+</li>
+      <li class="sidebar-item">
+  <a href="./python_example.html" class="">Matplotlib Demo</a>
+</li>
+  </ul>
+  </div>
+</nav>
+  </div>
+  <div id="quarto-toc-sidebar" class="col col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-toc order-last"><nav id="TOC" role="doc-toc">
+<h2 id="toc-title">On this page</h2>
+<ul>
+<li><a href="#r-example" class="nav-link active" data-scroll-target="#r-example">R example</a></li>
+</ul>
+</nav></div>
+  <div class="col mx-auto col-sm-12 col-md-9 col-lg-7 px-lg-4">
 <main>
 <header id="title-block-header">
-<h1 class="title display-7">Matplotlib Demo</h1>
+<h1 class="title d-none d-lg-block display-7">Matplotlib Demo</h1>
 <p class="author">Norah Smith</p>
 <p class="date">May 22nd, 2021</p>
 </header>
+
 <section id="r-example" class="level2">
 <h2 class="anchored" data-anchor-id="r-example">R example</h2>
-<p>Testing man</p>
+<p>Testing man.</p>
 <div class="cell">
 <p></p><details>
 <summary>Code</summary><p></p>
@@ -145,6 +208,12 @@
 <!-- -->
 </section>
 </main>
+<div class="page-navigation page-navigation-docked">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</div>
 </div> <!-- /main column -->
 </div> <!-- /row -->
 </div> <!-- /container fluid -->
