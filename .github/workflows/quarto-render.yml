@@ -19,9 +19,11 @@ jobs:
         cut -d '"' -f 4 |
         wget -i -
         sudo dpkg -i quarto-0.1-amd64.deb
-    - name: "Quarto test"
+    - name: "Quarto env"
       run: |
         quarto env
+    - name: "Quarto capabilities"
+      run: |
         quarto capabilities
     - name: "Install Python deps"
       run: | 
@@ -31,15 +33,21 @@ jobs:
         echo "which python: $(which python)"
         echo "which python3: $(which python3)"
         echo "which jupyter: $(which jupyter)"
-    - name: "Cache packages"
+    - name: "Install R Packages: Cache packages"
       uses: actions/cache@v1
       with:
         path: ${{ env.RENV_PATHS_ROOT }}
         key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
         restore-keys: |
           ${{ runner.os }}-renv-
-    - name: "Restore packages"
+    - name: "Install R Packages: Restore packages"
       shell: Rscript {0}
       run: |
         if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
         renv::restore()
+    - name: "Render r_example.Rmd"
+      run: |
+        quarto render --execute-debug r_example.Rmd
+    - name: "Render python_example.qmd"
+      run: |
+        quarto render --execute-debug python_example.qmd
