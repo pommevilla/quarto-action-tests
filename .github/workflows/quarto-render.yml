@@ -45,9 +45,9 @@ jobs:
     - name: "Quarto capabilities"
       run: |
         quarto capabilities
-    - name: "Render r_example.Rmd"
+    - name: "Render directory"
       run: |
-        quarto render --execute-debug r_example.Rmd
+        quarto render --execute-debug 
     - name: "Test commit"
       run: |
         git config --local user.name "$GITHUB_ACTOR"
