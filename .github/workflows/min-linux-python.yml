@@ -30,6 +30,10 @@ jobs:
         echo "which python: $(which python)"
         echo "which python3: $(which python3)"
         echo "which jupyter: $(which jupyter)"
+    - name: "NBConvert demo notebook"
+      continue-on-error: true
+      run: |
+        jupyter nbconvert demo_notebook.ipynb --to pdf
     - name: "Quarto: Render sample Python"
       run: |
         quarto render python_example.qmd --execute-debug 
