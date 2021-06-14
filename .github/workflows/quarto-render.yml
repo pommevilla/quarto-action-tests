@@ -1,0 +1,43 @@
+name: Test quarto install on Linux
+on: push
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+    - uses: r-lib/actions/setup-r@v1
+    - name: "Install quarto bin"
+      run: |
+        #        curl -OL https://github.com/quarto-dev/quarto-cli/releases/download/v0.1.258/quarto-0.1-amd64.deb
+
+        curl -s https://api.github.com/repos/quarto-dev/quarto-cli/releases/latest | 
+        grep "browser_download_url.*deb" | 
+        cut -d '"' -f 4 |
+        wget -i -
+        sudo dpkg -i quarto-0.1-amd64.deb
+    - name: "Quarto test"
+      run: |
+        quarto env
+        quarto capabilities
+    - name: "Install Python deps"
+      run: | 
+        pip install -r requirements/common.txt
+    - name: "Check Python installation"
+      run: |
+        echo "which python: $(which python)"
+        echo "which python3: $(which python3)"
+        echo "which jupyter: $(which jupyter)"
+    - name: "Cache packages"
+      uses: actions/cache@v1
+      with:
+        path: ${{ env.RENV_PATHS_ROOT }}
+        key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-renv-
+    - name: "Restore packages"
+      shell: Rscript {0}
+      run: |
+        if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+        renv::restore()
