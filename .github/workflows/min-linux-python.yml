@@ -34,20 +34,13 @@ jobs:
       continue-on-error: true
       run: |
         jupyter nbconvert demo_notebook.ipynb --to pdf
-    - name: "Check environment variables"
-      continue-on-error: true
-      run: |
-        echo "${{ github.actions }}"
-        echo "$GITHUB_ACTIONS"
-        if [ "$GITHUB_ACTIONS" = "true" ]; then echo "found"; else echo "Not found"; fi
-        if [ "${{ github.actions }}" = "true" ]; then echo "found"; else echo "Not found"; fi
-
     - name: "Quarto: Render sample Python"
       run: |
         if [ "$GITHUB_ACTIONS" = "true" ]
         then 
-          echo "found"; 
+          echo "Being run in a Github Actions environment"
           quarto render python_example.qmd --execute-debug --no-execute-daemon
         else 
-          echo "Not found"
+          echo "Not a Github Actions environment"
+          quarto render python_example.qmd --execute-debug
         fi
