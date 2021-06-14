@@ -41,6 +41,10 @@ jobs:
         if [ "${{ github.actions }}" = "true" ]; then echo "something"; else echo "else"; fi
 
     - name: "Quarto: Render sample Python"
+      if: github.actions == 'true'
+      run: |
+        quarto render python_example.qmd --execute-debug --no-execute-daemon
+    - name: "Quarto: Render sample Python"
       if: ${{ github.actions == 'true' }}
       run: |
         quarto render python_example.qmd --execute-debug --no-execute-daemon
