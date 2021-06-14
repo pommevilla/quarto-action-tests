@@ -33,5 +33,7 @@ The action will render Quarto documents contained in the directory by taking the
 
 * [python_example.qmd](python_example.qmd)
 * [r_example.rmd](r_example.Rmd)
+* [python_r_example.qmd](python_r_example.qmd)
+* [demo_notebook.ipynb](demo_notebook.ipynb)
 
 
