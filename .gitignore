@@ -3,3 +3,8 @@
 .RData
 .Ruserdata
 *.Rproj
+
+/.quarto/
+/.venv/
+/.condaenv/
+*_cache/
