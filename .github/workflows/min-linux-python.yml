@@ -14,16 +14,17 @@ jobs:
         cut -d '"' -f 4 |
         wget -i -
         sudo dpkg -i quarto-0.1-amd64.deb
+    - name: "Install Python Packages"
+      run: |
+        grep -iv "win" requirements.txt > TEMP_requirements.txt
+        pip install -r TEMP_requirements.txt
+        pip install jupyter
     - name: "Quarto env"
       run: |
         quarto env
     - name: "Quarto capabilities"
       run: |
         quarto capabilities
-    - name: "Install Python Packages"
-      run: |
-        grep -iv "win" requirements.txt > TEMP_requirements.txt
-        pip install -r TEMP_requirements.txt
     - name: "Check Python installs"
       run: |
         echo "which python: $(which python)"
