@@ -9,7 +9,13 @@
     "href": "index.html#example-pages",
     "title": "Testing automated quarto rendering",
     "section": "Example pages",
-    "text": "python_example.qmd\nr_example.rmd"
+    "text": "python_example.qmd\nr_example.rmd\npython_r_example.qmd\ndemo_notebook.ipynb"
+  },
+  {
+    "href": "demo_notebook.html#demo-notebook",
+    "title": "Jupyter Notebook Demo",
+    "section": "Demo Notebook",
+    "text": "Helper functions:\n\ndef reverse_complement(nuc_sequence: str) -> str:\n    \"\"\"\n    Returns the reverse complement of a nucleotide sequence.\n    >>> reverse_complement('ACGT')\n    'ACGT'\n    >>> reverse_complement('ATCGTGCTGCTGTCGTCAAGAC')\n    'GTCTTGACGACAGCAGCACGAT'\n    >>> reverse_complement('TGCTAGCATCGAGTCGATCGATATATTTAGCATCAGCATT')\n    'AATGCTGATGCTAAATATATCGATCGACTCGATGCTAGCA'\n     \"\"\"\n    complements = {\n        'A': 'T',\n        'C': 'G',\n        'G': 'C',\n        'T': 'A',\n        '[': ']',\n        ']': '[',\n    }\n    rev_seq = ''.join([complements[s] for s in nuc_sequence[::-1]])\n    return rev_seq\n\ndef random_dna_seq(seq_length):\n    \"\"\"Generates a random DNA sequence of length seq_length\"\"\"\n    from random import choice\n    return ''.join(choice('ACTG') for _ in range(seq_length))\n\n\ndna_seqs = [random_dna_seq(20) for _ in range(10)]\n\n\nfor i, dna_seq in enumerate(dna_seqs):\n    print(f'The reverse complement of dna seq. {i} is {reverse_complement(dna_seq)}.')\n\nThe reverse complement of dna seq. 0 is TGGCCACCAAGCCGTTCCAT.\nThe reverse complement of dna seq. 1 is TCTAGGTCTCATCTGTGTAC.\nThe reverse complement of dna seq. 2 is CCCCATCTGCATTTAAGATG.\nThe reverse complement of dna seq. 3 is TCCGATGGTCCCTTTAATTA.\nThe reverse complement of dna seq. 4 is ACAATTAGTGCAGTCCGGTA.\nThe reverse complement of dna seq. 5 is CCACAAGGCGGCTCTGTACT.\nThe reverse complement of dna seq. 6 is CGAGCTACTTCTCGATGCCT.\nThe reverse complement of dna seq. 7 is ATTACAAATGCCACCCGCCG.\nThe reverse complement of dna seq. 8 is GGGCCGTTTAACCCGGTGGG.\nThe reverse complement of dna seq. 9 is GAATTGTTCGCAACATAAGA."
   },
   {
     "href": "python_r_example.html#python-example",
