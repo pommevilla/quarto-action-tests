@@ -9,8 +9,10 @@ jobs:
     - uses: actions/setup-python@v2
     - name: "Install quarto bin"
       run: |
-        curl -OL https://github.com/quarto-dev/quarto-cli/releases/download/v0.1.258/quarto-0.1-amd64.deb
-
+        curl -s https://api.github.com/repos/quarto-dev/quarto-cli/releases/latest | 
+        grep "browser_download_url.*deb" | 
+        cut -d '"' -f 4 |
+        wget -i -
         sudo dpkg -i quarto-0.1-amd64.deb
     - name: "Quarto env"
       run: |
@@ -20,7 +22,8 @@ jobs:
         quarto capabilities
     - name: "Install Python Packages"
       run: |
-        pip install -r requirements/common.txt
+        grep -iv "win" requirements.txt > TEMP_requirements.txt
+        pip install -r TEMP_requirements.txt
     - name: "Check Python installs"
       run: |
         echo "which python: $(which python)"
@@ -28,4 +31,4 @@ jobs:
         echo "which jupyter: $(which jupyter)"
     - name: "Quarto: Render sample Python"
       run: |
-        quarto render --execute-debug python_example.qmd
+        quarto render python_example.qmd --execute-debug 

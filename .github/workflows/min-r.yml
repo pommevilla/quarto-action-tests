@@ -30,10 +30,6 @@ jobs:
     - name: "Quarto capabilities"
       run: |
         quarto capabilities
-        #    - name: "Install R Packages"
-        #      run: |
-        #        R -e 'install.packages("renv")'
-        #        R -e 'renv::restore()'
     - name: Cache packages
       uses: actions/cache@v1
       with:
@@ -49,12 +45,4 @@ jobs:
         renv::restore()
     - name: "Quarto: Render sample Rmarkdown"
       run: |
-        quarto render r_example.Rmd
-        #    - name: "Test commit"
-        # run: |
-        #git config --local user.name "$GITHUB_ACTOR"
-        #git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
-        #git add *.html
-        #git add *_files
-        #git commit -m 'Automated commit' || echo "No changes to commit"
-        #git push origin || echo "No changes to commit"
+        quarto render r_example.Rmd --execute-debug
