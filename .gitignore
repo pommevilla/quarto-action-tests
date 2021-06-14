@@ -8,3 +8,4 @@
 /.venv/
 /.condaenv/
 *_cache/
+.ipynb_checkpoints/
