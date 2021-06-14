@@ -38,7 +38,9 @@ jobs:
       continue-on-error: true
       run: |
         echo "${{ github.actions }}"
-        if [ "${{ github.actions }}" = "true" ]; then echo "something"; else echo "else"; fi
+        echo "$GITHUB_ACTIONS"
+        if [ "$GITHUB_ACTIONS" = "true" ]; then echo "found"; else echo "Not found"; fi
+        if [ "${{ github.actions }}" = "true" ]; then echo "found"; else echo "Not found"; fi
 
     - name: "Quarto: Render sample Python"
       if: github.actions == 'true'
