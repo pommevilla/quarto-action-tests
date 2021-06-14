@@ -1,0 +1,28 @@
+project:
+  type: site
+  title: "Quarto Action Test"
+
+site: 
+  title: "Testing automated quarto rendering"
+  sharing: [twitter, facebook, linkedin]
+  repo-url: https://github.com/pommevilla/quarto-action-tests
+  sidebar:
+    style: "docked"
+    background: light
+    search: true
+    collapse-level: 2
+    tools:
+      - icon: github
+        href: https://github.com/pommevilla/quarto-action-tests
+    contents:
+      - index.Rmd
+      - r_example.Rmd
+      - python_example.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    code-link: true
+
