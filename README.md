@@ -15,4 +15,11 @@ The action will render the documents in the directory by taking these steps:
 4. Set up R via [r-lib/actions/setup-r](https://github.com/r-lib/actions/tree/master/setup-r)
 5. Restore the R environment from the `renv` lockfile
 6. Calls `quarto render` at the root of the github repository.
-7. Pushes and commits any changes detected.
+7. Pushes and commits any new `html`-related files.
+
+## Example pages
+
+[python_example.qmd](python_example.qmd)
+[r_example.rmd](r_example.Rmd)
+
+

@@ -1,6 +1,7 @@
 project:
   type: site
   title: "Quarto Action Test"
+  output-dir: docs
 
 site: 
   title: "Testing automated quarto rendering"
