@@ -38,10 +38,9 @@ jobs:
       continue-on-error: true
       run: |
         echo "${{ github.actions }}"
-        if [ "$GITHUB_ACTIONS" = "true" ]; then echo "something"; else echo "else"; fi
         if [ "${{ github.actions }}" = "true" ]; then echo "something"; else echo "else"; fi
 
     - name: "Quarto: Render sample Python"
-      if: ${{ github.actions == true }}
+      if: ${{ github.actions == 'true' }}
       run: |
         quarto render python_example.qmd --execute-debug --no-execute-daemon
