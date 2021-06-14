@@ -42,8 +42,7 @@ jobs:
         renv::restore()
     - name: "Install reticulate"
       run: |
-        Rscript -e "install.packages('remotes')"
-        Rscript -e "remotes::install_github('rstudio/reticulate')"
+        Rscript -e "install.packages('reticulate')"
     - name: "Quarto env"
       run: |
         quarto env

@@ -19,6 +19,7 @@ site:
       - index.Rmd
       - r_example.Rmd
       - python_example.qmd
+      - python_r_example.qmd
 
 format:
   html:
