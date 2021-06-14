@@ -20,6 +20,7 @@ site:
       - r_example.Rmd
       - python_example.qmd
       - python_r_example.qmd
+      - demo_notebook.ipynb
 
 format:
   html:
