@@ -36,11 +36,4 @@ jobs:
         jupyter nbconvert demo_notebook.ipynb --to pdf
     - name: "Quarto: Render sample Python"
       run: |
-        if [ "$GITHUB_ACTIONS" = "true" ]
-        then 
-          echo "Being run in a Github Actions environment"
-          quarto render python_example.qmd --execute-debug --no-execute-daemon
-        else 
-          echo "Not a Github Actions environment"
-          quarto render python_example.qmd --execute-debug
-        fi
+        quarto render python_example.qmd --execute-debug
